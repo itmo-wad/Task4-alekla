@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Secret Cabinet</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+<body>
+	<div class="header">
+        <h2>Hello: {{ user.login }}<br> <a href="/logout">Log out</a></h2>
+	</div>
+
+  <div class="container">
+	<p>Image</p>
+	{% if user.avatar_url %}
+	<p><img src="{{user.avatar_url}}" style="width: 50px;"/></p>
+	{% endif %}
+
+	<p>Upload photo:</p>
+	<form action = "/upload" method = "POST" enctype = "multipart/form-data">
+		<input type = "file" name = "file" />
+		<input type = "submit"/>
+    </form>
+    </div>
+</body>
+</html>

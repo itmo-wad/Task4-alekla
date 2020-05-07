@@ -18,15 +18,4 @@ jwt = JWTManager(app)
 initialize_db(app)
 initialize_routes(api)
 
-# default
-from flask import Flask, session, request, redirect, url_for, render_template, flash, jsonify, make_response
-
-
-@app.route('/')
-def index():
-    auth_header = request.headers.get('Authorization')
-
-    if auth_header:
-        return redirect(url_for('cabinet'))
-    else:
-        return redirect(url_for('login'))
+from resources import routes

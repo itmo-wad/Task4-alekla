@@ -5,6 +5,7 @@ class User(db.Document):
     login = db.StringField(required=True, min_length=5)
     email = db.EmailField(required=True, unique=True)
     password = db.StringField(required=True, min_length=10)
+    avatar_url = db.StringField(required=False, min_length=5)
 
     def hash_password(self):
         self.password = generate_password_hash(self.password).decode('utf8')
